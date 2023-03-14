@@ -1,0 +1,7 @@
+# Max number of grid elements
+N = 100
+# Final time
+tf = 1
+# Initial condition
+initialcond = 0
+
