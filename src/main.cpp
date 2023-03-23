@@ -7,19 +7,8 @@
 #include "GetPot"
 #include <string>
 #include "read_parameters.hpp"
-// To plot with GNUPlot
-// #include "gnuplot-iostream.hpp"
 
-// Help function when called with -h or --help
 
-void printHelp()
-{
-    std::cout
-            << "USAGE: main [-h] [-v] -p parameterFile (default: parameters.pot)"
-            << std::endl;
-    std::cout << "-h this help" << std::endl;
-    std::cout << "-v verbose output" << std::endl;
-}
 
 int main(int argc, char** argv){
 
@@ -33,9 +22,6 @@ int main(int argc, char** argv){
         printHelp();
         return 0;
     }
-
-    // Check if we want verbosity
-    bool verbose = cl.search(1, "-v");
 
     // Get file with parameter values
     string filename = cl.follow("parameters.pot", "-p");
@@ -70,15 +56,6 @@ int main(int argc, char** argv){
         f.width(16);
         f << t_n[n] << "\t\t" << u_n[n] << "\t\t" << exact_sol[n] << "\n";
     }
-
-    /*
-    // Plotting with GNUPlot
-
-    Gnuplot gp;
-    gp << "plot" << gp.file1d(std::tie(t_n, u_n)) << "w lp lw 2 title 'uh',"
-     << gp.file1d(std::tie(t_n, exact_sol)) << "w l lw 2 title 'uex'"
-     << std::endl;
-    */
 
     f.close();
     return status;

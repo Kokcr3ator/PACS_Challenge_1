@@ -1,4 +1,4 @@
-# Max number of grid elements
+#Number of time steps
 N = 100
 # Final time
 tf = 1
