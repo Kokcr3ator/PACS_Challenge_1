@@ -1,7 +1,4 @@
-#!/bin/bash
 # A script that launches gnuplot on the file result.dat
-#
-# you can also launch gnuplot and type the command at the gnuplot prompt
 #
 
 gnuplot<<EOF
