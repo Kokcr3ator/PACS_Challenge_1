@@ -8,7 +8,7 @@
 #include <string>
 #include "read_parameters.hpp"
 // To plot with GNUPlot
-//#include "gnuplot-iostream.hpp"
+// #include "gnuplot-iostream.hpp"
 
 // Help function when called with -h or --help
 
@@ -47,7 +47,7 @@ int main(int argc, char** argv){
     std::function<double(double, double)> force = [](double t, double y) {return -t*exp(-y);};
 
     // Calculating the solution (CrankNicolson returns an array of 2 vectors, one with the times and one with the solution y(t))
-    auto [u_n,t_n] = CrankNicolson(force, param);
+    auto [t_n,u_n] = CrankNicolson(force, param);
 
     // Computing the exact solution
     unsigned long N = param.N;

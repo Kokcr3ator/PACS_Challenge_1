@@ -9,10 +9,14 @@
 #include "Derivatives.hpp"
 #include <array>
 #include <functional>
+#include "parameters.hpp"
 
-// Da cambiare: Prendere in input una struct con i parametri
 
-std::array<std::vector<double>,2> CrankNicolson(const std::function<double(double,double)> & f, double y0 = 0, double t0 = 0, double tf = 0, size_t N = 0){
+std::array<std::vector<double>,2> CrankNicolson(const std::function<double(double,double)> & f, parameters param){
+    double tf = param.tf;
+    double t0 = 0;
+    double N = param.N;
+    double y0 = param.initialcond;
     double h = (tf-t0)/N;
     std::vector<double> u_n(N+1);
     // Setting up th initial condition
